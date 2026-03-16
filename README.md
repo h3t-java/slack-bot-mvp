@@ -44,7 +44,7 @@ Slack RAG Bot workflow:
 ``` cd slack-bot-mvp ```
 
 2. **Create a virtual enviroment**
-``` python -m venv venv ``
+``` python -m venv venv ```
 ``` source venv/bin/activate   # Linux/macOS ```
 ``` # venv\Scripts\activate    # Windows ```
 
