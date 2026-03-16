@@ -40,27 +40,27 @@ Slack RAG Bot workflow:
 
 1. **Clone the repository**
 
-git clone https://github.com/h3t-java/slack-bot-mvp.git
-cd slack-bot-mvp
+``` git clone https://github.com/h3t-java/slack-bot-mvp.git ```
+``` cd slack-bot-mvp ```
 
 2. **Create a virtual enviroment**
-python -m venv venv
-source venv/bin/activate   # Linux/macOS
-# venv\Scripts\activate    # Windows
+``` python -m venv venv ``
+``` source venv/bin/activate   # Linux/macOS ```
+``` # venv\Scripts\activate    # Windows ```
 
 3. **Install dependancies**
-pip install -r requirements.txt
+``` pip install -r requirements.txt ```
 
 4. **Create .env file in project root**
-SLACK_BOT_TOKEN=xoxb-your-slack-bot-token
-LLM_API_KEY=sk-your-llm-api-key
+``` SLACK_BOT_TOKEN=xoxb-your-slack-bot-token ```
+``` LLM_API_KEY=sk-your-llm-api-key ```
 
 5 **Add sample documents in data/documents/**
-Example: employee_handbook.txt, company_faq.txt, it_support_guide.txt.
+``` Example: employee_handbook.txt, company_faq.txt, it_support_guide.txt. ```
 
 6 **Inject documents into Chroma DB**
-python scripts/ingest_docs.py
+``` python scripts/ingest_docs.py ```
 
 7. **Run locally**
-uvicorn main:app --reload --port 8000
-Webhook is available at http://localhost:8000/slack/events
+``` uvicorn main:app --reload --port 8000 ```
+``` Webhook is available at http://localhost:8000/slack/events ```
