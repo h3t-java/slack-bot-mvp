@@ -44,7 +44,7 @@ docker build -t slack-bot-mvp:latest .
 ```bash
 docker run -p 8000:8000 \
     -e SLACK_BOT_TOKEN="xoxb-your-slack-bot-token" \
-    -e LLM_API_KEY="sk-your-llm-api-key" \
+    -e OPENROUTER_API_KEY="sk-your-llm-api-key" \
     slack-bot-mvp:latest
 ```
 ### 3. **Test Webhook is available at http://localhost:8000/slack/events**
