@@ -1,0 +1,13 @@
+IT Support Guide
+
+Laptop Requests
+Employees can request a new laptop through the IT Service Portal. Requests are usually approved within two business days.
+
+Password Reset
+If you forget your password, use the company password reset tool available on the login page. If the tool does not work, contact the IT helpdesk.
+
+Software Installation
+Employees may request new software through the IT Service Portal. All software requests must be approved by the employee's department manager.
+
+Security Policy
+Employees must not install unauthorized software on company devices. All laptops must use the company VPN when accessing internal systems remotely.

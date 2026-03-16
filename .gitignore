@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment
+.env
+venv/
+
+# Chroma DB
+data/chroma_db/
+
+# Logs
+*.log
