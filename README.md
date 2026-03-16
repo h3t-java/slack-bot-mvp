@@ -17,42 +17,7 @@ This bot is designed for **lightweight, production-ready deployment** on free cl
 
 Slack RAG Bot workflow:
 
-+-----------------+
-|   User in Slack |
-+-----------------+
-          │
-          ▼
-+---------------------------+
-| Slack sends event to      |
-| FastAPI webhook           |
-| (/slack/events)           |
-+---------------------------+
-          │
-          ▼
-+---------------------------+
-| Webhook acknowledges HTTP |
-| 200 immediately           |
-+---------------------------+
-          │
-          ▼
-+---------------------------+
-| Background task triggers  |
-| RAG pipeline:             |
-|  1. Embed the question    |
-|  2. Query Chroma vector   |
-|     store                 |
-|  3. If relevant docs →    |
-|     prompt LLM with docs  |
-|     Else → LLM answers    |
-|  4. Return answer with    |
-|     sources               |
-+---------------------------+
-          │
-          ▼
-+---------------------------+
-| Bot posts response in     |
-| Slack channel             |
-+---------------------------+
+![Slack RAG Bot Architecture](assets/architecture.png)
 
 - **FastAPI** handles webhook and background tasks.  
 - **Chroma DB** stores embeddings for documents.  
@@ -75,7 +40,6 @@ Slack RAG Bot workflow:
 
 1. **Clone the repository**
 
-```bash
 git clone https://github.com/h3t-java/slack-bot-mvp.git
 cd slack-bot-mvp
 
