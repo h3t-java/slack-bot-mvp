@@ -9,8 +9,6 @@
 - If the question is **not covered by documents**, it falls back to a **general LLM answer**.  
 - Answers include **source citations** for transparency.  
 
-This bot is designed for **lightweight, production-ready deployment** on free cloud tiers like Railway, Render, or Fly.io.
-
 ---
 
 ## Architecture Overview
@@ -64,3 +62,9 @@ Slack RAG Bot workflow:
 7. **Run locally**
 ``` uvicorn main:app --reload --port 8000 ```
 ``` Webhook is available at http://localhost:8000/slack/events ```
+
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Slack API](https://img.shields.io/badge/Slack%20Bot-API-4A154B?style=for-the-badge&logo=slack&logoColor=white)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-RAG-9C27B0?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-MVP-blue?style=for-the-badge)
