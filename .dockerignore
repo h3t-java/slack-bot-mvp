@@ -1,0 +1,25 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+*.env
+
+# Git
+.git
+.gitignore
+
+# Logs
+*.log
+
+# Local Chroma DB (recreated at build/startup)
+data/chroma_db/
+
+# IDE files
+.vscode/
+.idea/
+*.swp

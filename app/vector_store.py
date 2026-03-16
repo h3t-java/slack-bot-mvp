@@ -11,6 +11,9 @@ from chromadb.config import Settings
 # Ensure the directory exists
 os.makedirs("data/chroma_db", exist_ok=True)
 
+# Name your collection
+COLLECTION_NAME = "documents"
+
 # Create Chroma client using the NEW API (0.5.x)
 client = Client(
     Settings(

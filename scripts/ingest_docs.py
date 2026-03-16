@@ -1,5 +1,6 @@
 import sys
 import os
+import uuid
 
 # Disable Chroma telemetry BEFORE importing anything from chromadb
 os.environ["CHROMA_TELEMETRY_ENABLED"] = "false"
@@ -8,7 +9,7 @@ os.environ["CHROMA_TELEMETRY_ENABLED"] = "false"
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from app.embeddings import embed
-from app.vector_store import add_document, collection
+from app.vector_store import client, COLLECTION_NAME, add_document
 
 DOC_FOLDER = "data/documents"
 
@@ -29,7 +30,18 @@ def split_text(text, chunk_size=400, overlap=80):
 
 
 def ingest_documents():
-    """Read documents, chunk them, embed them, and store them in Chroma."""
+    # Drop old collection if exists
+    if COLLECTION_NAME in [c.name for c in client.list_collections()]:
+        print("Dropping existing collection...")
+        client.delete_collection(COLLECTION_NAME)
+
+    # Recreate collection and get the new object
+    collection = client.get_or_create_collection(
+        name=COLLECTION_NAME,
+        metadata={"hnsw:space": "cosine"}
+    )
+    print(f"Collection '{COLLECTION_NAME}' ready for ingestion.")
+
     for file in os.listdir(DOC_FOLDER):
         path = os.path.join(DOC_FOLDER, file)
 
@@ -49,7 +61,13 @@ def ingest_documents():
                 "source": file,
                 "chunk": i
             }
-            add_document(chunk, embedding, metadata)  # uses ids=[uuid] inside vector_store
+           # Add directly using the current collection object
+            collection.add(
+                ids=[str(uuid.uuid4())],
+                documents=[chunk],
+                embeddings=[embedding],
+                metadatas=[metadata]
+            )
 
     print("Ingestion completed")
     print("Total documents:", collection.count())
