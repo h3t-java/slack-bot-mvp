@@ -13,8 +13,6 @@
 
 ## Architecture Overview
 
-Slack RAG Bot workflow:
-
 ![Slack RAG Bot Architecture](assets/architecture.png)
 
 - **FastAPI** handles webhook and background tasks.  
@@ -34,37 +32,19 @@ Slack RAG Bot workflow:
 
 ---
 
-## Setup Locally
+### Local startup with Docker
 
-1. **Clone the repository**
+### 1. **Build the Docker image**
 
-``` git clone https://github.com/h3t-java/slack-bot-mvp.git ```
-``` cd slack-bot-mvp ```
+```bash
+docker build -t slack-bot-mvp:latest .
+```
 
-2. **Create a virtual enviroment**
-``` python -m venv venv ```
-``` source venv/bin/activate   # Linux/macOS ```
-``` # venv\Scripts\activate    # Windows ```
-
-3. **Install dependancies**
-``` pip install -r requirements.txt ```
-
-4. **Create .env file in project root**
-``` SLACK_BOT_TOKEN=xoxb-your-slack-bot-token ```
-``` LLM_API_KEY=sk-your-llm-api-key ```
-
-5 **Add sample documents in data/documents/**
-``` Example: employee_handbook.txt, company_faq.txt, it_support_guide.txt. ```
-
-6 **Inject documents into Chroma DB**
-``` python scripts/ingest_docs.py ```
-
-7. **Run locally**
-``` uvicorn main:app --reload --port 8000 ```
-``` Webhook is available at http://localhost:8000/slack/events ```
-
-![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![Slack API](https://img.shields.io/badge/Slack%20Bot-API-4A154B?style=for-the-badge&logo=slack&logoColor=white)
-![ChromaDB](https://img.shields.io/badge/ChromaDB-RAG-9C27B0?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-MVP-blue?style=for-the-badge)
+### 2. **Run the container**
+```bash
+docker run -p 8000:8000 \
+    -e SLACK_BOT_TOKEN="xoxb-your-slack-bot-token" \
+    -e LLM_API_KEY="sk-your-llm-api-key" \
+    slack-bot-mvp:latest
+```
+### 3. **Test Webhook is available at http://localhost:8000/slack/events**
