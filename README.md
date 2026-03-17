@@ -1,5 +1,9 @@
 # Slack RAG Bot 🤖
 
+
+https://github.com/user-attachments/assets/33d420a7-6bef-4d75-aff2-07da8e22c840
+
+
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
 ![Docker](https://img.shields.io/badge/Docker-Enabled-blue)
