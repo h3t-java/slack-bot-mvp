@@ -1,4 +1,11 @@
-# Slack RAG Bot MVP
+# Slack RAG Bot 🤖
+
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![Docker](https://img.shields.io/badge/Docker-Enabled-blue)
+![Slack Bot](https://img.shields.io/badge/Slack-Bot-4A154B?logo=slack&logoColor=white)
+![RAG](https://img.shields.io/badge/RAG-Enabled-orange)
+![ChromaDB](https://img.shields.io/badge/VectorDB-Chroma-purple)
 
 ## Description
 
